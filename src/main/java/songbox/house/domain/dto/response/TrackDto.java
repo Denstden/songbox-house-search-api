@@ -16,4 +16,5 @@ public class TrackDto {
     Long sizeBytes;
     Short bitRate;
     byte[] content;
+    String artworkUrl;
 }
