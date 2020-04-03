@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface DownloadService {
     Optional<TrackDto> download(SearchQueryDto searchQuery);
 
+    Optional<TrackDto> download(SearchQueryDto searchQuery, String artworkUrl);
+
     Optional<TrackDto> download(TrackMetadataDto trackMetadataDto);
 
     boolean isDownloadEnabled();
