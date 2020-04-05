@@ -16,5 +16,6 @@ public class TrackMetadataDto implements BitRateDuration {
     String thumbnail;
     String uri;
     String resource;
+    Double sizeMb;
 }
 
