@@ -13,5 +13,8 @@ public interface DownloadService {
 
     Optional<TrackDto> download(TrackMetadataDto trackMetadataDto);
 
-    boolean isDownloadEnabled();
+    //0 - download disabled, 100 - max priority
+    int getDownloadPriority();
+
+    boolean canDownload(String serviceName);
 }
