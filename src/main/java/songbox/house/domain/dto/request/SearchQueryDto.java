@@ -7,4 +7,5 @@ public class SearchQueryDto {
     final String query;
     boolean fetchArtwork = true;
     boolean filterByArtistTitle = true;
+    boolean lowQuality = false;
 }
