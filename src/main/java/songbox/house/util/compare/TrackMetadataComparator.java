@@ -12,10 +12,18 @@ public class TrackMetadataComparator implements Comparator<TrackMetadataDto> {
 
     private final ArtistsTitle expectedArtistsTitle;
     private final int threshold;
+    private final boolean reverseBitRateDuration;
+
+    public TrackMetadataComparator(ArtistsTitle expectedArtistsTitle, int threshold, boolean reverseBitRateDuration) {
+        this.expectedArtistsTitle = expectedArtistsTitle;
+        this.threshold = threshold;
+        this.reverseBitRateDuration = reverseBitRateDuration;
+    }
 
     public TrackMetadataComparator(ArtistsTitle expectedArtistsTitle, int threshold) {
         this.expectedArtistsTitle = expectedArtistsTitle;
         this.threshold = threshold;
+        this.reverseBitRateDuration = false;
     }
 
     @Override
@@ -23,7 +31,9 @@ public class TrackMetadataComparator implements Comparator<TrackMetadataDto> {
         final int compare1 = ARTIST_TITLE_COMPARATOR.compare(o1.getArtistsTitle(), expectedArtistsTitle);
         final int compare2 = ARTIST_TITLE_COMPARATOR.compare(o2.getArtistsTitle(), expectedArtistsTitle);
         if (compare1 > threshold && compare2 > threshold) {
-            return BIT_RATE_DURATION_COMPARATOR.compare(o1, o2);
+            return reverseBitRateDuration
+                    ? BIT_RATE_DURATION_COMPARATOR.compare(o2, o1)
+                    : BIT_RATE_DURATION_COMPARATOR.compare(o1, o2);
         } else {
             return Integer.compare(compare1, compare2);
         }
