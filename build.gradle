@@ -1,19 +1,19 @@
 apply plugin: 'java'
 
 group = 'com.github.Denstden'
-version = '0.1.14'
+version = '0.1.20'
 
 sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 
-//    maven { url 'https://jitpack.io' }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    compile project(':songbox-house-util')
-    //implementation("com.github.Denstden:songbox-house-util:0.0.17")
+//    compile project(':songbox-house-util')
+    implementation("com.github.Denstden:songbox-house-util:0.0.21")
     compileOnly 'org.projectlombok:lombok:1.18.4'
     annotationProcessor 'org.projectlombok:lombok:1.18.4'
 }
