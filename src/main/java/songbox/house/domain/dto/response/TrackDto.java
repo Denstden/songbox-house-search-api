@@ -8,6 +8,7 @@ import static lombok.AccessLevel.PRIVATE;
 @Data
 @FieldDefaults(level = PRIVATE)
 public class TrackDto {
+    Long trackId;
     String artists;
     String title;
     String fileName;
